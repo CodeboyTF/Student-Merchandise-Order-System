@@ -1,5 +1,6 @@
 package com.unimerch.unimerch.service;
 
+import com.unimerch.unimerch.enums.MerchCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.stereotype.Service;
@@ -36,7 +37,7 @@ public class MerchItemService {
     }
 
     //Method for getting merchandise item by category
-    public List<MerchItem> getAllMerchItemByCategory(String category)
+    public List<MerchItem> getAllMerchItemByCategory(MerchCategory category)
     {
         return merchItemRepository.findByCategory(category);
     }

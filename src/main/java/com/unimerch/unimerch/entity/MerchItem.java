@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 
 import com.unimerch.unimerch.enums.Color;
 import com.unimerch.unimerch.enums.MerchCategory;
-import jakarta.persistence.*;
 
 @Entity
 public class MerchItem {
@@ -15,7 +14,6 @@ public class MerchItem {
     String size;
     int quantity;
     double price;
-
 
     String name;
 

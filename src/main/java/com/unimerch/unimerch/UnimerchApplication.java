@@ -9,5 +9,4 @@ public class UnimerchApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(UnimerchApplication.class, args);
 	}
-
 }

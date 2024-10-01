@@ -1,6 +1,7 @@
 package com.unimerch.unimerch.controller;
 
 import com.unimerch.unimerch.entity.MerchItem;
+import com.unimerch.unimerch.enums.MerchCategory;
 import com.unimerch.unimerch.service.MerchItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
@@ -33,7 +34,7 @@ public class MerchItemController {
     }
 
     @GetMapping("/category")
-    public List<MerchItem> getMerchItemsByCategory(String category){
+    public List<MerchItem> getMerchItemsByCategory(MerchCategory category){
 
         return merchItemService.getAllMerchItemByCategory(category);
     }
