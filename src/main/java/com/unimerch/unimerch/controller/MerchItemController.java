@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
@@ -15,7 +14,6 @@ import java.util.Optional;
 @RestController
 @RequestMapping("api/merch")
 public class MerchItemController {
-
 
     @Autowired
     private MerchItemService merchItemService;
@@ -30,12 +28,10 @@ public class MerchItemController {
     public ResponseEntity<Optional<MerchItem>> getMerchItemsById(@PathVariable Long id) throws ChangeSetPersister.NotFoundException {
         Optional<MerchItem> merchItem = merchItemService.getMerchItemById(id);
         return new ResponseEntity<>(merchItem, HttpStatus.OK);
-
     }
 
     @GetMapping("/category")
     public List<MerchItem> getMerchItemsByCategory(MerchCategory category){
-
         return merchItemService.getAllMerchItemByCategory(category);
     }
 
@@ -48,7 +44,4 @@ public class MerchItemController {
     public List<MerchItem> addMerchItems(@RequestBody List<MerchItem> merchItems) {
         return merchItemService.addingAllMerchItems(merchItems);
     }
-
-
-
 }

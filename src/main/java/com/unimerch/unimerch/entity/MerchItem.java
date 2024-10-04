@@ -23,11 +23,9 @@ public class MerchItem {
     @Enumerated(EnumType.STRING)
     Color color;
 
-    //Default Constructor
     public MerchItem() {
     }
 
-    //Constructor with parameters
     public MerchItem(Long merchId, String size, int quantity, double price, String name, MerchCategory category, Color color) {
         this.merchId = merchId;
         this.size = size;
@@ -80,7 +78,6 @@ public class MerchItem {
 
     public Color getColor() {
         return color;
-
     }
 
     public void setColor(Color color) {
