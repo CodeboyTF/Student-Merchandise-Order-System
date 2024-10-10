@@ -26,23 +26,25 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf(httpSecurityCsrfConfigurer -> httpSecurityCsrfConfigurer.disable())
                 .authorizeHttpRequests( registry ->{
-                    registry.requestMatchers( "/api/merch/fetchall", "/register/user" ).permitAll();
+                    registry.requestMatchers( "/api/merch/all","/api/merch/create" ,"/api/merch/update/{id}","/api/merch/category",
+                            "/api/merch//update/{id}", "/api/merch/delete/{id}","/api/merch/delete/category/{category}",
+                            "/api/students/update/student/{id}").permitAll();
                     registry.requestMatchers("/api/merch/fetchall").hasRole("USER");
                     registry.requestMatchers("fetchall/password").hasRole("ADMIN");
                     registry.anyRequest().authenticated();               })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .build();
     }
-    @Bean
-    public UserDetailsService userDetailsService() {
-
-        UserDetails normalUser = User.builder()
-                .username("Lese")
-                .password("vbnm")
-                .build();
-        return  new InMemoryUserDetailsManager(normalUser);
-
-    }
+//    @Bean
+//    public UserDetailsService userDetailsService() {
+//
+//        UserDetails normalUser = User.builder()
+//                .username("Lese")
+//                .password("vbnm")
+//                .build();
+//        return  new InMemoryUserDetailsManager(normalUser);
+//
+//    }
                @Bean
                public AuthenticationProvider authenticationProvider(){
                DaoAuthenticationProvider provider =new DaoAuthenticationProvider();

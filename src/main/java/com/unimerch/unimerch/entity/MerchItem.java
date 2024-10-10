@@ -10,7 +10,7 @@ public class MerchItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long merchId;
+    Long id;
     String size;
     int quantity;
     int price;
@@ -26,8 +26,8 @@ public class MerchItem {
     public MerchItem() {
     }
 
-    public MerchItem(Long merchId, String size, int quantity, int price, String name, MerchCategory category, Color color) {
-        this.merchId = merchId;
+    public MerchItem(Long id, String size, int quantity, int price, String name, MerchCategory category, Color color) {
+        this.id = id;
         this.size = size;
         this.quantity = quantity;
         this.price = price;
@@ -38,12 +38,12 @@ public class MerchItem {
 
     }
 
-    public Long getMerchId() {
-        return merchId;
+    public Long getId() {
+        return id;
     }
 
-    public void setMerchId(Long merchId) {
-        this.merchId = merchId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getSize() {
