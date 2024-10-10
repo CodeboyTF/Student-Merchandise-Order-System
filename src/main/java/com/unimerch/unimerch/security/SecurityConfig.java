@@ -9,7 +9,11 @@ import org.springframework.security.authentication.dao.DaoAuthenticationProvider
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractAuthenticationFilterConfigurer;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -27,14 +31,25 @@ public class SecurityConfig {
                     registry.requestMatchers("fetchall/password").hasRole("ADMIN");
                     registry.anyRequest().authenticated();               })
                 .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
-                .build();    }
+                .build();
+    }
+    @Bean
+    public UserDetailsService userDetailsService() {
 
+        UserDetails normalUser = User.builder()
+                .username("Lese")
+                .password("vbnm")
+                .build();
+        return  new InMemoryUserDetailsManager(normalUser);
+
+    }
                @Bean
                public AuthenticationProvider authenticationProvider(){
                DaoAuthenticationProvider provider =new DaoAuthenticationProvider();
                provider.setUserDetailsService(userDetailService);
                provider.setPasswordEncoder(passwordEncoder());
                return provider;    }
+
                @Bean
                public BCryptPasswordEncoder passwordEncoder() {
                return new BCryptPasswordEncoder();    }}

@@ -44,4 +44,6 @@ public class MerchItemController {
     public List<MerchItem> addMerchItems(@RequestBody List<MerchItem> merchItems) {
         return merchItemService.addingAllMerchItems(merchItems);
     }
+     @PutMapping("/update/{id}")
+    public ResposnseEntity
 }
