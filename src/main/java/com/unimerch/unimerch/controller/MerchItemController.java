@@ -1,8 +1,10 @@
 package com.unimerch.unimerch.controller;
 
+import com.unimerch.unimerch.entity.Category;
 import com.unimerch.unimerch.entity.MerchItem;
 import com.unimerch.unimerch.enums.MerchCategory;
 import com.unimerch.unimerch.service.MerchItemService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
@@ -45,5 +47,24 @@ public class MerchItemController {
         return merchItemService.addingAllMerchItems(merchItems);
     }
      @PutMapping("/update/{id}")
-    public ResposnseEntity
+    public ResponseEntity<MerchItem> updateMerchItem(
+            @PathVariable Long id,
+            @RequestBody MerchItem merchItem){
+
+        MerchItem merchItem1 = merchItemService.updateMerchItem(id, merchItem.getPrice(),
+                merchItem.getQuantity());
+        return ResponseEntity.ok(merchItem1);
+     }
+     @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteMerchItem(@PathVariable Long id) {
+        merchItemService.deleteMerchItemById(id);
+        return ResponseEntity.noContent().build();
+     }
+     @Transactional
+    @DeleteMapping("/delete/category/{category}")
+    public List<MerchItem>deleteByCategory(@PathVariable Category category) {
+        System.out.println(category);
+        return  merchItemService.deleteByCategory(category);
+     }
+
 }

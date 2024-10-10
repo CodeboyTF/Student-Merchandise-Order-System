@@ -59,7 +59,7 @@ MerchItemService {
             merchItem.setQuantity(quantity);
             return merchItemRepository.save(merchItem);
         }
-        throw new RuntimeException(("ID NOT FOUND" + id);
+        throw new RuntimeException(("ID NOT FOUND" + id));
     }
     public void deleteMerchItemById(Long id) {
         merchItemRepository.deleteById(id);

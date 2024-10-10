@@ -9,16 +9,66 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long stud_id;
+    Long id;
+
+    public Student(Long id, String studNo, String name, String surname, String email) {
+        this.id = id;
+        this.studNo = studNo;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+    }
+
+    public Student() {
+    }
 
     @Column(unique = true)
-    String stud_no;
-    String stud_name;
-    String stud_surname;
-    String stud_email;
+    String studNo;
+    String name;
+    String surname;
+    String email;
 
+    public Long getId() {
+        return id;
+    }
 
-//        @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getStudNo() {
+        return studNo;
+    }
+
+    public void setStudNo(String studNo) {
+        this.studNo = studNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    //        @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
 //        @JoinColumn(name = "student_id", referencedColumnName = "id")
 //        List<Orders> orders;
 

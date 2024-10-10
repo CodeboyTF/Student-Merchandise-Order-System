@@ -9,11 +9,11 @@ import com.unimerch.unimerch.enums.MerchCategory;
 public class MerchItem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO )
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long merchId;
     String size;
     int quantity;
-    double price;
+    int price;
 
     String name;
 
@@ -26,7 +26,7 @@ public class MerchItem {
     public MerchItem() {
     }
 
-    public MerchItem(Long merchId, String size, int quantity, double price, String name, MerchCategory category, Color color) {
+    public MerchItem(Long merchId, String size, int quantity, int price, String name, MerchCategory category, Color color) {
         this.merchId = merchId;
         this.size = size;
         this.quantity = quantity;
@@ -34,6 +34,16 @@ public class MerchItem {
         this.name = name;
         this.category = category;
         this.color = color;
+
+
+    }
+
+    public Long getMerchId() {
+        return merchId;
+    }
+
+    public void setMerchId(Long merchId) {
+        this.merchId = merchId;
     }
 
     public String getSize() {
@@ -52,20 +62,12 @@ public class MerchItem {
         this.quantity = quantity;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
-    }
-
-    public MerchCategory getCategory() {
-        return category;
-    }
-
-    public void setCategory(MerchCategory category) {
-        this.category = category;
     }
 
     public String getName() {
@@ -76,6 +78,14 @@ public class MerchItem {
         this.name = name;
     }
 
+    public MerchCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(MerchCategory category) {
+        this.category = category;
+    }
+
     public Color getColor() {
         return color;
     }
@@ -83,13 +93,8 @@ public class MerchItem {
     public void setColor(Color color) {
         this.color = color;
     }
-
-    public Long getMerchId() {
-        return merchId;
-    }
-
-    public void setMerchId(Long merchId) {
-        this.merchId = merchId;
-    }
 }
+
+
+
 
