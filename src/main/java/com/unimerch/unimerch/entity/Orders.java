@@ -26,6 +26,5 @@ public class Orders {
     double total_price;
 
     private Long student_id;
-
 }
 

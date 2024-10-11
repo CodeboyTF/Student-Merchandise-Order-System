@@ -1,14 +1,10 @@
 package com.unimerch.unimerch.controller;
 
 import com.unimerch.unimerch.entity.User;
-import com.unimerch.unimerch.controller.RegistrationContoller;
-import com.unimerch.unimerch.security.SecurityConfig;
 import com.unimerch.unimerch.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class RegistrationContoller {
@@ -25,3 +21,19 @@ public User createUser(
     user.setPassword(passwordEncoder.encode(user.getPassword()));
     return userRepository.save(user);}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

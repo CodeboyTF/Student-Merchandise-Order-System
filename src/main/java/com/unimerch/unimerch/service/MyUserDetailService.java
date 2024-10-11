@@ -7,8 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-
+import java.util.NoSuchElementException;
 import java.util.Optional;
+
 @Service
 public class MyUserDetailService implements UserDetailsService {
 
@@ -28,9 +29,22 @@ public class MyUserDetailService implements UserDetailsService {
         } else {
             throw new UsernameNotFoundException(username);
         }
+
+//        public User updateStudentPassword(Long id, String password) {
+//
+//            User user1 = repository.findById(id)      .orElseThrow() -> new NoSuchElementException("USER IS NOT FOUND"));
+//
+//            String encodedPassword = passwordEncoder.encode(password);
+//
+//            user1.setPassword(encodedPassword);
+//
+//            return repository.save(user1);
+
+
+        }
     }
 
-}
+
 //    private String[] getRole(User user) {
 //        if (user.getRole() == null) {
 //            return new String[] {"USER"};

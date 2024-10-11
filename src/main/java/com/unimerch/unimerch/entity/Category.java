@@ -9,6 +9,5 @@ public class Category {
     @Id
     Long cId;
     String items;
-
 }
 

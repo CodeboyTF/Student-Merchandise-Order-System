@@ -68,5 +68,4 @@ MerchItemService {
         System.out.println(category);
         return merchItemRepository.deleteByCategory(category);
     }
-
 }

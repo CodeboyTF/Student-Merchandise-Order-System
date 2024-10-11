@@ -27,6 +27,7 @@ public class Student {
     String name;
     String surname;
     String email;
+    String password;
 
     public Long getId() {
         return id;
@@ -67,9 +68,17 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
+//        private String password;
+    public String getPassword() {
+            return password;
+        }
 
-    //        @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
-//        @JoinColumn(name = "student_id", referencedColumnName = "id")
-//        List<Orders> orders;
+    public void setPassword(String password) {
+            this.password = password;
+        }
+    }
 
-}
+
+//    public void setPassword(String encodedPassword) {
+//    }
+

@@ -1,7 +1,6 @@
 package com.unimerch.unimerch.entity;
 
 import jakarta.persistence.*;
-
 import com.unimerch.unimerch.enums.Color;
 import com.unimerch.unimerch.enums.MerchCategory;
 

@@ -7,6 +7,5 @@ public enum Size {
     MEDIUM,
     LARGE,
     EXTRA_LARGE
-
 }
 
